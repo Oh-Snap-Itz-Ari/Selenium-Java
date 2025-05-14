@@ -28,7 +28,6 @@ public class SearchChrome {
             Thread.sleep(2000);
         }
         catch (Exception ignored){
-
         }
     }
 
