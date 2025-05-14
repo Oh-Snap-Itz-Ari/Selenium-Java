@@ -18,7 +18,14 @@ public class NavigatorChrome {
         driver.manage().window().maximize();
         driver.get("https://mvnrepository.com/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        return driver; // Se pone como public WebDriver para poderlo retornar al final
+        return driver;
+    }
+
+    public WebDriver tearDown(){
+        if (driver != null){
+            driver.close();
+        }
+        return driver;
     }
 
 }
