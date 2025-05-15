@@ -13,10 +13,10 @@ public class NavigatorChrome {
         driver = _driver; // Lo que se le envia la clase nunca lo olvidará, en este caso el driver
     }
 
-    public WebDriver openGoogleNavigator() {
+    public WebDriver openGoogleNavigator(String url) {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://mvnrepository.com/");
+        driver.get(url);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
     }

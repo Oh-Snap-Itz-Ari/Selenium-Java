@@ -1,4 +1,4 @@
-package resources.scenaries.mvn;
+package scenaries.mvn;
 
 import org.openqa.selenium.WebDriver;
 import resources.utils.GlobalResources;
@@ -11,9 +11,9 @@ public class SearchLibraries {
         driver = _driver;
     }
 
-    public void SearchMvnLibrary(WebDriver driver) {
+    public void SearchMvnLibrary(WebDriver driver, String search) {
         GlobalResources globalResources = new GlobalResources(driver);
-        globalResources.Write("//*[@name='q' and @role='searchbox']","Selenium");
+        globalResources.Write("//*[@name='q' and @role='searchbox']", search);
         globalResources.Click("//*[@class='button' and @type='submit']");
     }
 

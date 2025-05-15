@@ -16,6 +16,7 @@ public class GlobalResources {
     }
 
     public void Write (String xpath, String text){
+        driver.findElement(By.xpath(xpath)).clear();
         driver.findElement(By.xpath(xpath)).sendKeys(text);
     }
 }

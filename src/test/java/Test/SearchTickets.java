@@ -1,40 +1,41 @@
 package Test;
 
-import entities.google.ValidationSearch;
+import entities.tickets.ValidationTickets;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import resources.navigation.NavigatorChrome;
-import scenaries.facebook.HomeFacebook;
 import scenaries.mvn.SearchLibraries;
+import scenaries.tickets.HomePageTickets;
 
-public class SearchChrome {
+public class SearchTickets {
 
     WebDriver driver;
-    ValidationSearch validationSearch;
-    SearchLibraries searchLibraries;
+    ValidationTickets validationTickets;
+    HomePageTickets homePageTickets;
 
     @BeforeMethod // Indica que se ejecutará previo a las pruebas
     public void beforeTest(){
         NavigatorChrome navigatorChrome = new NavigatorChrome(driver); // Se crea una instancia para que el metodo pueda acceder a la clase navigationChrome
-        driver = navigatorChrome.openGoogleNavigator("https://mvnrepository.com/");
+        driver = navigatorChrome.openGoogleNavigator("https://www.tiquetesbaratos.com/");
     }
 
     public void ReadingData(){
-        validationSearch = new ValidationSearch(); // Crea una instancia para utilizarla después
-        validationSearch.setSearchcontent("Selenium");
+        validationTickets = new ValidationTickets(); // Crea una instancia para utilizarla después
+        validationTickets.setOriginCity("Bogotá - Colombia (BOG)");
+        validationTickets.setDestinyCity("México - Ciudad de México CDMX (MEX)");
     }
 
     public void BasicInstances(){
-        searchLibraries = new SearchLibraries(driver);
+        homePageTickets = new HomePageTickets(driver);
         ReadingData(); // Se llama Reading Data para que busque la información
     }
 
     @Test // Indica el test que se va a realizar
-    public void searchChrome(){
+    public void searchAirplaneTickets(){
         BasicInstances();
-        searchLibraries.SearchMvnLibrary(driver, validationSearch.getSearchcontent().toString());
+        homePageTickets.SearchFlights(driver, validationTickets.getOriginCity().toString(), validationTickets.getDestinyCity().toString());
     }
 
     @AfterMethod // Indica que se ejecutará después de las pruebas
@@ -43,3 +44,4 @@ public class SearchChrome {
         driver = navigatorChrome.tearDown();
     }
 }
+
