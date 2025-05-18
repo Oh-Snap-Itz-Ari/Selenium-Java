@@ -24,6 +24,9 @@ public class SignInFacebook {
         validationSignIn = new ValidationSignIn(); // Crea una instancia para utilizarla después
         validationSignIn.firstName = "Alex";
         validationSignIn.lastName = "Melo";
+        validationSignIn.dayBirthday = "5"; // El value en este caso representa el día 5 del mes
+        validationSignIn.monthBirthday = "abr"; // El visibletext en este caso representa Abril (April)
+        validationSignIn.yearBirthday = "2000"; // El value en este caso representa el año 2000
         validationSignIn.email = "alexfabianmelo123@hotmail.com";
         validationSignIn.password = "pass123";
     }

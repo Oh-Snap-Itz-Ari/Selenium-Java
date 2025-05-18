@@ -19,6 +19,9 @@ public class RegisterFacebook {
         String buttonRegister = "//*[@data-testid='open-registration-form-button' and @href='/r.php?entry_point=login']";
         String inputName = "//*[@name='firstname']";
         String inputLastName = "//*[@name='lastname']";
+        String selectMonth = "//*[@id='month' and @name='birthday_month']";
+        String selectDay = "//*[@id='day' and @name='birthday_day']";
+        String selectYear = "//*[@id='year' and @name='birthday_year']";
         String selectGender = "//*[@value='2' and @id='sex' and @name='sex']";
         String inputEmail = "//*[@name='reg_email__']";
         String inputPassword = "//*[@name='reg_passwd__']";
@@ -26,6 +29,9 @@ public class RegisterFacebook {
         globalResources.Click(buttonRegister);
         globalResources.Write(inputName,validationSignIn.firstName);
         globalResources.Write(inputLastName, validationSignIn.lastName);
+        globalResources.SelectListValue(selectDay, validationSignIn.dayBirthday);
+        globalResources.SelectListText(selectMonth, validationSignIn.monthBirthday);
+        globalResources.SelectListValue(selectYear, validationSignIn.yearBirthday);
         globalResources.Click(selectGender);
         globalResources.Write(inputEmail, validationSignIn.email);
         globalResources.Write(inputPassword, validationSignIn.password);
