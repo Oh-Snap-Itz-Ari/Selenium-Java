@@ -17,7 +17,7 @@ public class SignInFacebook {
     @BeforeMethod // Indica que se ejecutará previo a las pruebas
     public void beforeTest(){
         NavigatorChrome navigatorChrome = new NavigatorChrome(driver); // Se crea una instancia para que el metodo pueda acceder a la clase navigationChrome
-        driver = navigatorChrome.openGoogleNavigator("https://www.facebook.com/");
+        driver = navigatorChrome.openGoogleNavigator("https://es-la.facebook.com/");
     }
 
     public void ReadingData(){
