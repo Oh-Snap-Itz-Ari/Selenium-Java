@@ -7,6 +7,7 @@ public class ValidationSignIn {
     public String monthBirthday;
     public String dayBirthday;
     public String yearBirthday;
+    public String gender;
     public String email;
     public String password;
 

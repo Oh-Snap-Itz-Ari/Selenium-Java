@@ -27,6 +27,9 @@ public class SignInFacebook {
         validationSignIn.dayBirthday = "5"; // El value en este caso representa el día 5 del mes
         validationSignIn.monthBirthday = "abr"; // El visibletext en este caso representa Abril (April)
         validationSignIn.yearBirthday = "2000"; // El value en este caso representa el año 2000
+        // validationSignIn.gender = "Male";
+        // validationSignIn.gender = "Female";
+        validationSignIn.gender = "Other";
         validationSignIn.email = "alexfabianmelo123@hotmail.com";
         validationSignIn.password = "pass123";
     }

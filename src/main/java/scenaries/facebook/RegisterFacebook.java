@@ -12,6 +12,25 @@ public class RegisterFacebook {
         driver = _driver;
     }
 
+    public void GenderSelection(String gender){
+
+        GlobalResources globalResources = new GlobalResources(driver);
+
+        String inputFemale = "//*[@id='sex' and @value='1']";
+        String inputMale = "//*[@id='sex' and @value='2']";
+        String inputOther = "//*[@id='sex' and @value='-1']";
+
+        if (gender == "Male"){
+            globalResources.Click(inputMale);
+        }
+        else if (gender == "Female"){
+            globalResources.Click(inputFemale);
+        }
+        else {
+            globalResources.Click(inputOther); // Se podría en cualquier término que no corresponda a "Male" o "Female"
+        }
+    }
+
     public void SignInFacebookConfirm(ValidationSignIn validationSignIn) { //Al hacer lo de public static WebDriver ya no sería necesario pedir el driver
 
         GlobalResources globalResources = new GlobalResources(driver);
@@ -22,7 +41,6 @@ public class RegisterFacebook {
         String selectMonth = "//*[@id='month' and @name='birthday_month']";
         String selectDay = "//*[@id='day' and @name='birthday_day']";
         String selectYear = "//*[@id='year' and @name='birthday_year']";
-        String selectGender = "//*[@value='2' and @id='sex' and @name='sex']";
         String inputEmail = "//*[@name='reg_email__']";
         String inputPassword = "//*[@name='reg_passwd__']";
 
@@ -32,9 +50,8 @@ public class RegisterFacebook {
         globalResources.SelectListValue(selectDay, validationSignIn.dayBirthday);
         globalResources.SelectListText(selectMonth, validationSignIn.monthBirthday);
         globalResources.SelectListValue(selectYear, validationSignIn.yearBirthday);
-        globalResources.Click(selectGender);
+        GenderSelection(validationSignIn.gender);
         globalResources.Write(inputEmail, validationSignIn.email);
         globalResources.Write(inputPassword, validationSignIn.password);
-
     }
 }
