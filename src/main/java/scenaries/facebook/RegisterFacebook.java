@@ -31,6 +31,26 @@ public class RegisterFacebook {
         }
     }
 
+    public void GenderSelectionSwitchCase(String gender){
+
+        GlobalResources globalResources = new GlobalResources(driver);
+
+        String inputFemale = "//*[@id='sex' and @value='1']";
+        String inputMale = "//*[@id='sex' and @value='2']";
+        String inputOther = "//*[@id='sex' and @value='-1']";
+
+        switch (gender) {
+            case "Male":
+                globalResources.Click(inputMale);
+
+            case "Female":
+                globalResources.Click(inputFemale);
+
+            case "Other":
+                globalResources.Click(inputOther);
+        }
+    }
+
     public void SignInFacebookConfirm(ValidationSignIn validationSignIn) { //Al hacer lo de public static WebDriver ya no sería necesario pedir el driver
 
         GlobalResources globalResources = new GlobalResources(driver);
@@ -50,7 +70,7 @@ public class RegisterFacebook {
         globalResources.SelectListValue(selectDay, validationSignIn.dayBirthday);
         globalResources.SelectListText(selectMonth, validationSignIn.monthBirthday);
         globalResources.SelectListValue(selectYear, validationSignIn.yearBirthday);
-        GenderSelection(validationSignIn.gender);
+        GenderSelectionSwitchCase(validationSignIn.gender);
         globalResources.Write(inputEmail, validationSignIn.email);
         globalResources.Write(inputPassword, validationSignIn.password);
     }
